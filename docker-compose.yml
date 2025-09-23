@@ -1,0 +1,22 @@
+services:
+  postgres:
+    image: postgres:15
+    container_name: microtodo_user_postgres
+    restart: always
+    ports:
+      - 5433:5432
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: user
+      POSTGRES_DB: user
+    volumes:
+      - microtodo_user_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U user"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  microtodo_user_pgdata:
+    driver: local
