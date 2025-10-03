@@ -1,0 +1,15 @@
+name: deploy
+on:
+  push:
+    branches: [ "master" ]
+
+jobs:
+  deploy:
+    uses: micro-todo/infrastructure/.github/workflows/service-ci.yaml@178b2b7303483dad4a7d6255a644437574664a69
+    with:
+      service_name: users-service
+      docker_context: .
+      dockerfile: Dockerfile
+      repository: microtodo/users-service
+      image_tag: ${{ github.sha }}
+    secrets: inherit
