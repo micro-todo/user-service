@@ -5,7 +5,7 @@ on:
 
 jobs:
   deploy:
-    uses: micro-todo/infrastructure/.github/workflows/service-ci.yaml@178b2b7303483dad4a7d6255a644437574664a69
+    uses: micro-todo/infrastructure/.github/workflows/service-ci.yaml@d591990407b9375ff464a610427dcbb946eba20a
     with:
       service_name: users-service
       docker_context: .
